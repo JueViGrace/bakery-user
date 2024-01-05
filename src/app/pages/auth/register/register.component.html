@@ -1,0 +1,93 @@
+<section class="login-section login-center">
+  <div class="auto-container">
+    <!-- Login Form -->
+    <div class="login-form">
+      <figure>
+        <img
+          src="assets/bellaria/images/logo.png"
+          alt="logo de bakery and desert pasteleria"
+          title="bakery and desert logo"
+        />
+      </figure>
+<div class="text-center colorN">
+  <h3>Para registrarte necesitamos los siguientes datos</h3>
+</div>
+      <!--Login Form-->
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <label>Nombre</label>
+              <input type="text" formControlName="name" />
+              <small *ngIf="isValidField('name')" class="text-danger">
+                {{ getErrorMessage("name") }}
+              </small>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="form-group">
+              <label>Apellido</label>
+              <input type="text" formControlName="lastName" />
+
+              <small *ngIf="isValidField('lastName')" class="text-danger">
+                {{ getErrorMessage("lastName") }}
+              </small>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Fecha de Nacimiento</label>
+          <input type="date" formControlName="birthDate" />
+
+          <small *ngIf="isValidField('birthDate')" class="text-danger">
+            {{ getErrorMessage("birthDate") }}
+          </small>
+        </div>
+
+        <div class="form-group">
+          <label>Numero Telefonico</label>
+          <input type="text" formControlName="phone" />
+
+          <small *ngIf="isValidField('phone')" class="text-danger">
+            {{ getErrorMessage("phone") }}
+          </small>
+        </div>
+
+        <div class="form-group">
+          <label>Correo</label>
+          <input type="text" n formControlName="email" />
+
+          <small *ngIf="isValidField('email')" class="text-danger">
+            {{ getErrorMessage("email") }}
+          </small>
+        </div>
+
+        <div class="form-group">
+          <label>Contraseña</label>
+          <input type="password" formControlName="password" />
+
+          <small *ngIf="isValidField('password')" class="text-danger">
+            {{ getErrorMessage("password") }}
+          </small>
+        </div>
+
+        <div class="form-group justify-content-center d-flex">
+          <button
+            class="theme-btn"
+            type="submit"
+            [disabled]="registerForm.invalid"
+          >
+            Registrarse
+          </button>
+        </div>
+
+        <div routerLink="/auth/login" class="form-group pass text-center">
+          <a class="psw">Si tienes una cuenta click aqui</a>
+        </div>
+      </form>
+    </div>
+    <!--End Login Form -->
+  </div>
+</section>
